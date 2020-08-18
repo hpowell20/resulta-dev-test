@@ -1,6 +1,6 @@
 from helpers.date_utils import get_date_object
-from rest.constants import API_KEY, URL_BASE, EVENT_DATE_FORMAT
-from rest.utils import perform_get_request
+from rest.constants import URL_BASE, EVENT_DATE_FORMAT
+from rest.utils import get_api_key, perform_get_request
 
 
 def get_scores(start_date: str, end_date: str):
@@ -16,6 +16,6 @@ def get_scores(start_date: str, end_date: str):
     if start_date_obj > end_date_obj:
         raise ValueError('Start date must be before the end date')
 
-    url = f"{URL_BASE}/scoreboard/NFL/{start_date}/{end_date}.json?api_key={API_KEY}"
+    url = f"{URL_BASE}/scoreboard/NFL/{start_date}/{end_date}.json?api_key={get_api_key()}"
     response = perform_get_request(url)
     return start_date_obj, end_date_obj, response.get('results')

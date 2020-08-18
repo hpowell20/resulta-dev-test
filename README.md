@@ -48,7 +48,13 @@ This project was built and tested with Python 3.8, however, there should be no i
 
 ## Run Project ##
 
-Once the packages have been installed the project can be run by issuing the following command:
+Ensure that the API key is set as an environment variable
+```
+ export API_KEY=<API KEY> (Linux/OSX)
+ set API_KEY=<API KEY> (Windows)
+ ```
+
+Run the application
  ```
  python3 main.py -sd <start_date> -ed <end_date>
  ```
